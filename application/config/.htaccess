@@ -1,0 +1,6 @@
+RewriteEngine On
+<IfModule mod_autoindex.c>
+    Options -Indexes
+</IfModule>
+DirectoryIndex admin.php
+

@@ -1,0 +1,550 @@
+
+.overlay {
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, .5);
+	display: none;
+}
+
+.popup {
+	position: absolute;
+	width: 300px;
+	height: 180px;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	padding: 40px;
+	background-color: #FFF;
+}
+
+.close-popup {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	width: 23px;
+	height: 23px;
+	cursor: pointer;
+}
+
+.close-popup:before {
+	content: '';
+	background-color: #000;
+	position: absolute;
+	height: 1px;
+	width: 31px;
+	top: 11px;
+	left: -4px;
+	transform: rotate(-45deg);
+}
+
+.close-popup:after {
+	content: '';
+	background-color: #000;
+	position: absolute;
+	height: 1px;
+	width: 31px;
+	top: 11px;
+	transform: rotate(45deg);
+	left: -4px;
+}
+
+
+
+
+
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'Debbyscript';
+    src: url("../fonts/debby_ru-webfont.eot");
+    src: url("../fonts/debby_ru-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/debby_ru-webfont.woff2") format("woff2"), url("../fonts/debby_ru-webfont.woff") format("woff"), url("../fonts/debby_ru-webfont.ttf") format("truetype"), url("../fonts/debby_ru-webfont.svg#debbyscript") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    overflow-x: hidden;
+    font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+    margin: 15px;
+    margin-top: 50px;
+
+}
+
+.fadeInLeftClose {
+  -webkit-animation: fadeOutLeftBig 1.5s linear;
+       -o-animation: fadeOutLeftBig 1.5s linear;
+          animation: fadeOutLeftBig 1.5s linear;
+}
+.fadeInRightClose {
+  -webkit-animation: fadeOutRightBig 1.5s linear;
+       -o-animation: fadeOutRightBig 1.5s linear;
+          animation: fadeOutRightBig 1.5s linear;
+}
+
+.fadeInRight {
+  -webkit-animation: fadeInRightBig 1.5s linear;
+       -o-animation: fadeInRightBig 1.5s linear;
+          animation: fadeInRightBig 1.5s linear;
+}
+
+.modal.fade {
+    opacity: 1;
+    -webkit-transition: opacity 1.5s linear;
+    -o-transition: opacity 1.5s linear;
+    transition: opacity 1.5s linear;
+}
+
+.modal.fade .modal-dialog {
+    -webkit-transform: translate(0);
+    -ms-transform: translate(0);
+    -o-transform: translate(0);
+    transform: translate(0);
+}
+
+.modal-open .container-fluid,
+.modal-open .container {
+    -webkit-filter: blur(2px) grayscale(40%);
+    filter: blur(2px) grayscale(40%);
+}
+
+.nav-link.nav-link-help {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.modal-footer {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.modal-footer> :not(:first-child) {
+    margin-left: 0rem;
+}
+
+.form-header.form-header-blue {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#6d94bf), color-stop(50%, #446E9B), color-stop(50%, #3e648d));
+    background-image: -webkit-linear-gradient(#6d94bf, #446E9B 50%, #3e648d);
+    background-image: -o-linear-gradient(#6d94bf, #446E9B 50%, #3e648d);
+    background-image: linear-gradient(#6d94bf, #446E9B 50%, #3e648d);
+    background-repeat: no-repeat;
+    -webkit-filter: none;
+    filter: none;
+    border: 1px solid #345578;
+    color: #FFF;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+.form-header {
+  position: relative;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#61dd45), color-stop(50%, #3CB521), color-stop(50%, #36a41e));
+  background-image: -webkit-linear-gradient(#61dd45, #3CB521 50%, #36a41e);
+  background-image: -o-linear-gradient(#61dd45, #3CB521 50%, #36a41e);
+  background-image: linear-gradient(#61dd45, #3CB521 50%, #36a41e);
+  background-repeat: no-repeat;
+  -webkit-filter: none;
+          filter: none;
+  border: 1px solid #2e8a19;
+  color: #FFF;
+  text-align: center;
+  padding: 5px 10px;
+}
+
+#modalDocumentsRight .modal-dialog,
+#modalDocumentsLeft .modal-dialog {
+    max-width: 600px;
+}
+
+#modalDocumentsRight .modal-body,
+#modalDocumentsLeft .modal-body {
+    padding: 10px 30px;
+}
+
+#modalDocumentsRight .modal-body p,
+#modalDocumentsLeft .modal-body p {
+    line-height: 1.4;
+    text-indent: 1rem;
+    color: #343a40;
+    font-size: 1.1rem;
+}
+
+h4.section-subheading {
+    font-size: 1.3em;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 0px;
+    margin-top: 0.5rem;
+    line-height: 1;
+    text-transform: none;
+    padding: 10px;
+    font-family: 'Droid Serif', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+#modalDocumentsRight .form-header h3,
+#modalDocumentsLert .form-header h3 {
+    margin: 0.5rem 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.modal-left,
+.modal-right {
+    width: 100%;
+    float: none;
+    height: auto;
+    margin: 0;
+}
+
+table th,
+table td {
+    vertical-align: middle;
+}
+
+.col1 {
+    width: 200px;
+}
+
+.col2 {
+    width: 150px;
+}
+
+.col4 {
+    width: 210px;
+}
+
+.col5 {
+    width: 50px;
+}
+
+.col6 {
+    width: 50px;
+}
+
+.container {
+    padding: 50px;
+}
+
+.col-sort,
+.col-sort:hover {
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+}
+
+.col-sort:select {
+    border: none;
+
+}
+
+.table-bordered thead th,
+.table-bordered thead td {
+    padding: 0;
+}
+
+.notepad-hidden {
+    max-width: 0px;
+    max-height: 0px;
+    display: inline-flex;
+    overflow: hidden;
+    padding: 0px !important;
+    border: none !important;
+}
+
+.row-hidden {
+    display: none;
+}
+
+
+.fa-file-text:before {
+    content: "\f15c";
+}
+
+#modalNotepadId .modal-dialog {
+    max-width: 400px;
+}
+
+#modalNotepadId .modal-header {
+    border: none;
+    padding-bottom: 0px;
+}
+
+#modalNotepadId .modal-body {
+    padding-top: 0px;
+}
+
+#modalNotepadId .modal-footer {
+    border: none;
+    margin-bottom: 0px;
+}
+
+#modalNotepadId .notepad-comments {
+    margin: 10px 15px 10px 45px;
+    height: 80%
+}
+
+h5#modalNotepadTitleId.modal-title {
+    padding-top: 0px;
+    margin: 0 30px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+#modalTextarea.form-control {
+    height: 100%;
+}
+
+.modal-content.modal-notepad {
+    position: relative;
+    background-image: url("../images/notepad_sm_1.png");
+    background-size: 100% 100%;
+}
+
+.status-tasks {
+    margin-bottom: 16px;
+    text-align: right;
+}
+
+.tasks-limit {
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+.add-tasks {
+    margin-bottom: 16px;
+}
+
+.close-modal-left,
+.close-modal-right {
+    position: absolute;
+    top: -26px;
+    width: 31px;
+    height: 31px;
+    font-size: 50px;
+    cursor: pointer;
+    background: url(/images/close.png);
+    opacity: 0.5;
+}
+
+.close-modal-left {
+    left: -26px;
+}
+.close-modal-right {
+    right: -26px;
+}
+
+.close-modal-right:hover,
+.close-modal-left:hover {
+    opacity: 1;
+}
+
+.option-input {
+    top: 5px !important;
+}
+
+.form-check-input {
+    position: inherit;
+}
+
+.custom-select {
+    width: auto;
+}
+
+.custom-select-sm {
+    font-size: 90%;
+}
+
+#adminNav.navbar {
+    background-color: #DEB887;
+}
+
+#adminNav .navbar-brand {
+    font-size: 1.75em;
+    padding: 0;
+    color: #3399F3;
+    outline: none;
+    font-family: Debbyscript, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+#adminNav .navbar-toggler {
+    outline: none;
+    font-size: 12px;
+    right: 0;
+    padding: 13px;
+    color: white;
+    border: 0;
+    background-color: #3399F3;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #446E9B;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link:active,
+.navbar-dark .navbar-nav .nav-link:focus {
+    color: #3399F3;
+    outline: none;
+}
+
+.navbar-dark .navbar-nav .nav-link.no-active:active,
+.navbar-dark .navbar-nav .nav-link.no-active:focus {
+    color: #446E9B;
+    outline: none;
+}
+
+.form-container {
+    padding: 40px 20px;
+    background: rgba(225, 225, 250, 0.4);
+    border-radius: 2%;
+    border: 2px solid #6c757d;
+}
+
+.tasks-empty {
+    pointer-events: none;
+}
+.empty-text {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 50px;
+}
+
+.text-main p {
+    line-height: 1.4;
+    text-indent: 1rem;
+    color: #343a40;
+    font-size: 1.2rem;
+    padding: 0 30px;
+    text-align: justify;
+}
+
+.item-active {
+    color: #3399F3 !important;
+}
+
+.tasks-title {
+    margin-bottom: 40px;
+}
+
+@media (max-width: 375px) {
+
+    #modalNotepadId .notepad-comments {
+        margin: 0px 5px 0px 30px;
+    }
+    .text-main p {
+        text-align: center;
+    }
+
+}
+
+@media (max-width: 576px) {
+    body {
+        margin: 0;
+        margin-top: 20px;
+    }
+
+    .btn-block-mobile {
+        display: block;
+        width: 100%;
+    }
+
+    .container {
+        padding: 50px 5px 5px 5px;
+    }
+
+    .col1, .col2, .col4, .col5, .col6 { 
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 2.0rem;
+    }
+
+    table {
+        border: 0;
+    }
+
+    table .text-center {
+        text-align: right !important;
+    }
+
+    table thead {
+        display: none;
+    }
+
+    table tr {
+        margin-bottom: 20px;
+        display: block;
+        border-bottom: 2px solid #ddd;
+    }
+
+    table tr td {
+        display: block;
+        text-align: right !important;
+        font-size: 16px;
+        border-bottom: 1px dotted #ccc;
+    }
+
+    table td:last-child {
+        border-bottom: 0;
+    }
+
+    table td:before {
+        content: attr(data-label);
+        float: left;
+        text-transform: uppercase;
+        font-weight: bold;
+        padding-right: 5px;
+        font-size: 15px;
+    }
+
+    table td.col-null,
+    table td.notepad-hidden {
+        display: none !important;
+    }
+
+    #modalDocumentsRight .form-header h3,
+    #modalDocumentsLeft .form-header h3 {
+        font-size: 1.3rem;
+        font-weight: bold;
+    }
+
+    .close-modal-right,
+    .close-modal-left {
+        right: 10px;
+        top: 10px;
+        left: auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .modal-left,
+    .modal-right {
+        width: 50%;
+    }
+
+    .modal-right {
+        float: right;
+        margin: 50px 15px 0 0;
+    }
+    .modal-left {
+        float: left;
+        margin: 50px 0 0 15px;
+    }
+}
+
+
+
+

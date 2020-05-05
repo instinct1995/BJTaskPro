@@ -2,21 +2,36 @@
 $(function() {
 	
 	$("#createTasksForm").submit(function(e){
+			
 			var url_ = window.location.pathname;
+			var pole1 = $('#name_').val();
+			var pole2 = $('#email_').val();
+			var pole3 = $('#task_name_').val();
+			
+			var has_ = $('#name_').attr('aria-invalid');
+			var has1_ = $('#email_').attr('aria-invalid');
+			var has2_ = $('#task_name_').attr('aria-invalid');
 			$.ajax({
             type: 'POST',
             url: url_,
             data: $(this).serialize()
-        }).done (function()
-		{
-			if (url_.includes("update"))
-				$('.js-overlay-thank-you1').fadeIn();
-			if (url_.includes("create"))
-				$('.js-overlay-thank-you').fadeIn();
-			$(this).find('input').val('');
-			$('#form').trigger('reset');
-		});
-		return false;
+			}).done (function()
+			{
+				if (has_ == 'false' && has1_ == 'false' && has2_ == 'false' && pole1!='' && pole2!='' && pole3!='')
+				{
+					if (url_.includes("update"))
+						$('.js-overlay-thank-you1').fadeIn();
+					if (url_.includes("create"))
+						$('.js-overlay-thank-you').fadeIn();
+					$(this).find('input').val('');
+					$('#form').trigger('reset');
+				}
+				else if (has1_=='true')
+				{
+					alert ("Email не валиден!");
+				}
+			});
+			return false;
 });
 	
 	

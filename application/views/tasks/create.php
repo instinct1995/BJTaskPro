@@ -10,15 +10,15 @@
                 <div class="col-lg-12 form-form">
                     <div class="form-group">
                       <input type="hidden" name="notepad" value="<?php echo isset($vars['notepad']) ? $vars['notepad'] :''   ;?>"> 
-                        <input class="form-control" name="username" type="text" placeholder="Ваше имя *" required="required" maxlength="50" data-validation-required-message="Пожалуйста введите свое имя." data-validation-maxlength-message="Имя не должно быть больше 50 символов" autocomplete="off" value="<?php echo isset($vars['username']) ? $vars['username'] :''   ;?>">
+                        <input id="name_" class="form-control" name="username" type="text" placeholder="Ваше имя *" required="required" maxlength="50" data-validation-required-message="Пожалуйста, введите свое имя." data-validation-maxlength-message="Имя не должно быть больше 50 символов" autocomplete="off" value="<?php echo isset($vars['username']) ? $vars['username'] :''   ;?>">
                         <p class="help-block text-danger"></p>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" maxlength="50" name="email" type="tel" placeholder="Ваш Email *" required email data-validation-required-message="Пожалуйста, введите свой Email." data-validation-validemail-message="" data-validation-maxlength-message="Email не должен быть больше 50 символов" autocomplete="off" value="<?php echo isset($vars['email']) ? $vars['email'] :'';?>">
+                        <input id="email_" class="form-control" maxlength="50" name="email" type="tel" placeholder="Ваш Email *" required email data-validation-required-message="Пожалуйста, введите свой Email." data-validation-validemail-message="" data-validation-maxlength-message="Email не должен быть больше 50 символов" autocomplete="off" value="<?php echo isset($vars['email']) ? $vars['email'] :'';?>">
                         <p class="help-block text-danger"></p>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" maxlength="1000" name="task_name" placeholder="Название задачи *" data-validation-required-message="Пожалуйста введите название задачи." data-validation-maxlength-message="Название задачи не должно быть больше 1000 символов" autocomplete="off" spellcheck="false"><?php echo isset($vars['task_name']) ? $vars['task_name'] :'';?></textarea>
+                        <textarea id="task_name_" class="form-control" maxlength="1000" name="task_name" placeholder="Название задачи *" data-validation-required-message="Пожалуйста, введите название задачи." data-validation-maxlength-message="Название задачи не должно быть больше 1000 символов" autocomplete="off" spellcheck="false"><?php echo isset($vars['task_name']) ? $vars['task_name'] :'';?></textarea>
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>    
